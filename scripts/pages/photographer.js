@@ -34,6 +34,7 @@ function fillProfile(data) {
 	nameDOM.classList.add("h1-style");
 	img.src = `/assets/photographers/${data.portrait}`;
 }
+
 async function displayData(products) {
 	const productsSection = document.querySelector(".product-list");
 	var child = productsSection.lastElementChild;
@@ -48,11 +49,21 @@ async function displayData(products) {
 	});
 }
 
+function displaySticky(photographer, likesSum) {
+	// DOM
+	const likesNumber = document.querySelector(".likes-number");
+	const priceNumber = document.querySelector(".price-number");
+	likesNumber.textContent = likesSum;
+	priceNumber.textContent = photographer.price;
+}
 async function init() {
 	// Récupère les pictos par un photographer
 	const { photos, photographer } = await getProducts();
+	let likesSum = 0;
+	photos.map((photo) => (likesSum += photo.likes));
 	fillProfile(photographer);
 	displayData(photos);
+	displaySticky(photographer, likesSum);
 }
 
 init();

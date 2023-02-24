@@ -12,11 +12,16 @@ function photoFactory(data) {
 		} else {
 			img = document.createElement("video");
 			img.autoplay = false;
+			img.controls = true;
 			var source = document.createElement("source");
 			source.setAttribute("src", picture);
 			img.appendChild(source);
 		}
 		img.alt = title;
+		img.classList.add("img-photo");
+		img.addEventListener("click", () => {
+			displayPhotos();
+		});
 		const h2 = document.createElement("h2");
 		h2.textContent = title;
 		const description = document.createElement("p");
@@ -30,9 +35,10 @@ function photoFactory(data) {
 		likesWrap.appendChild(description);
 		likesWrap.classList.add("likes-wrap");
 		likesWrap.appendChild(heartIcon);
-		const link = document.createElement("a");
-		link.href = "#";
-		link.title = title;
+		const link = document.createElement("div");
+		link.classList.add("img");
+		// link.href = "#";
+		// link.title = title;
 		link.appendChild(img);
 		const wrapText = document.createElement("div");
 		wrapText.classList.add("wrap-text");
