@@ -5,7 +5,7 @@ const bodyPart = document.querySelector("body");
 const rightIcon = document.createElement("i");
 const leftIcon = document.createElement("i");
 const wrapper = document.createElement("div");
-
+const closeButton = document.querySelector(".fas.fa-times.fa-2x");
 let crtPtoIdx;
 let open = true;
 function displayPhotosModal(idPhoto) {
@@ -64,20 +64,31 @@ function photoItemModalFactory(photo) {
   article.appendChild(h1);
 }
 
+open && rightIcon.addEventListener("click", nextPhotoAction);
+open && leftIcon.addEventListener("click", previousPhotoAction);
 open &&
-  rightIcon.addEventListener("click", () => {
-    refreshModal();
-    crtPtoIdx += 1;
-    photoItemModalFactory(photosLibrary[crtPtoIdx]);
-    rightIconCheck();
+  bodyPart.addEventListener("keydown", (event) => {
+    if (event.key == "ArrowLeft") {
+      if (crtPtoIdx === 0) return;
+      previousPhotoAction();
+    } else if (event.key == "ArrowRight") {
+      if (crtPtoIdx === photosLibrary.length - 1) return;
+      nextPhotoAction();
+    }
   });
-open &&
-  leftIcon.addEventListener("click", () => {
-    refreshModal();
-    crtPtoIdx -= 1;
-    photoItemModalFactory(photosLibrary[crtPtoIdx]);
-    leftIconCheck();
-  });
+function nextPhotoAction() {
+  refreshModal();
+  crtPtoIdx += 1;
+  photoItemModalFactory(photosLibrary[crtPtoIdx]);
+  rightIconCheck();
+}
+function previousPhotoAction() {
+  refreshModal();
+  crtPtoIdx -= 1;
+  photoItemModalFactory(photosLibrary[crtPtoIdx]);
+  leftIconCheck();
+}
+
 function refreshModal() {
   let child = wrapper.firstChild;
   wrapper.removeChild(child);
@@ -95,3 +106,8 @@ function leftIconCheck() {
   }
   leftIcon.style.display = "block";
 }
+
+closeButton.addEventListener("click", () => {
+  closePhotosModal();
+  refreshModal();
+});

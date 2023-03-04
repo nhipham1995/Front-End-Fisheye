@@ -1,9 +1,3 @@
-// function myFunction() {
-// 	document.getElementById("myDropdown").classList.toggle("show");
-// }
-// document
-// 	.querySelector("button.dropbtn")
-// 	.addEventListener("click", () => myFunction());
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = async function (event) {
   const { photos } = await getProducts();

@@ -374,7 +374,13 @@ form input {
 .likes-number {
   margin-right: 3px;
 }
-
+.fas.fa-times.fa-2x {
+  color: #901c1c;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
 #list-photo-modal {
   position: absolute;
   top: 0;
@@ -390,10 +396,11 @@ form input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 50px;
 }
 .img-photo-modal {
   max-height: 85vh;
-  max-width: 90vw;
+  max-width: 85vw;
   display: flex;
   justify-content: center;
   align-items: center;
