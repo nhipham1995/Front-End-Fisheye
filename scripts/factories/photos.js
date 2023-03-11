@@ -1,23 +1,26 @@
 function photoFactory(data) {
-  const { id, title, image, price, date, likes, video } = data;
+  let { id, title, image, likes, video } = data;
 
   const picture = `assets/photos/${image ? image : video}`;
 
   function getUserCardDOM() {
     const article = document.createElement("article");
     let src;
+
     if (image) {
       src = document.createElement("img");
       src.setAttribute("src", picture);
+      src.alt = title + " Image.";
     } else {
       src = document.createElement("video");
+      src.alt = title + " Video.";
+
       src.autoplay = false;
       src.controls = true;
       var source = document.createElement("source");
       source.setAttribute("src", picture);
       src.appendChild(source);
     }
-    src.alt = title;
     src.classList.add("img-photo");
     src.addEventListener("click", () => {
       displayPhotosModal(id);
@@ -34,6 +37,7 @@ function photoFactory(data) {
     const likesWrap = document.createElement("div");
     likesWrap.appendChild(description);
     likesWrap.classList.add("likes-wrap");
+    // likesWrap.onClicked = () => onClickedFunc();
     likesWrap.appendChild(heartIcon);
     const link = document.createElement("div");
     link.classList.add("img");

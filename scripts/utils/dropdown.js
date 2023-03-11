@@ -1,8 +1,12 @@
 // Close the dropdown menu if the user clicks outside of it
-window.onclick = async function (event) {
+var dropdowns = document.getElementById("myDropdown");
+var dropdownWrapper = document.querySelector(".dropdown");
+console.log(dropdowns);
+dropdownWrapper.onclick = async function (event) {
+  stop = false;
   const { photos } = await getProducts();
+  console.log("hello");
   if (!event.target.matches(".dropbtn")) {
-    var dropdowns = document.getElementById("myDropdown");
     output = dropdowns.value;
     let newPhotos;
     if (output) {
@@ -14,15 +18,15 @@ window.onclick = async function (event) {
       });
     }
     displayData(newPhotos);
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      // var value = event.options[event.selectedIndex].value;
-      // console.log(value);
-      // if (openDropdown.classList.contains("show")) {
-      // 	openDropdown.classList.remove("show");
-      // }
-    }
+    // var i;
+    // for (i = 0; i < dropdowns.length; i++) {
+    //   var openDropdown = dropdowns[i];
+    //   var value = event.options[event.selectedIndex].value;
+    //   console.log(value);
+    //   if (openDropdown.classList.contains("show")) {
+    //     openDropdown.classList.remove("show");
+    //   }
+    // }
   }
 };
 var x, i, j, l, ll, selElmnt, a, b, c;

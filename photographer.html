@@ -16,7 +16,7 @@
     <title>Fisheye - photographe</title>
   </head>
   <body>
-    <div class="photographer-section">
+    <div class="photographer-section" aria-hidden="false">
       <header>
         <a href="/"
           ><img
@@ -36,7 +36,12 @@
           </div>
 
           <div class="button">
-            <button class="contact_button" onclick="displayModal()">
+            <button
+              class="contact_button"
+              type="button"
+              aria-label="Open Contact Form"
+              onclick="displayModal()"
+            >
               Contactez-moi
             </button>
           </div>
@@ -57,23 +62,63 @@
           <div class="product-list"></div>
         </div>
       </main>
-      <div id="contact_modal">
-        <div class="modal">
-          <header>
+    </div>
+    <div
+      id="contact_modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-describedby="modalContact"
+    >
+      <div class="modal">
+        <header>
+          <div>
             <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()" />
-          </header>
-          <form>
-            <div>
-              <label>Prénom</label>
-              <input />
-            </div>
-            <button class="contact_button">Envoyer</button>
-          </form>
-        </div>
+            <p class="photographer-name"></p>
+          </div>
+
+          <button
+            class="contact-modal-close"
+            type="button"
+            aria-label="Close Contact Form"
+          >
+            <img
+              src="assets/icons/close.svg"
+              alt="Close Button"
+              onclick="closeModal()"
+            />
+          </button>
+        </header>
+        <form aria-label="Contact Form">
+          <div>
+            <label for="name">Prénom</label>
+            <input id="name" type="text" />
+          </div>
+          <div>
+            <label for="lastname">Nom</label>
+            <input id="lastname" type="text" />
+          </div>
+          <div>
+            <label for="mail">Email</label>
+            <input id="mail" type="email" />
+          </div>
+          <div>
+            <label for="description">Votre message</label>
+            <textarea
+              id="description"
+              class="message-textarea"
+              rows="6"
+            ></textarea>
+          </div>
+          <button
+            class="contact_button"
+            type="submit"
+            aria-label="Send Contact Form Information"
+          >
+            Envoyer
+          </button>
+        </form>
       </div>
     </div>
-
     <div class="sticky-note">
       <div class="like-zone">
         <div class="likes-number"></div>
@@ -84,7 +129,12 @@
       </div>
     </div>
 
-    <div id="list-photo-modal">
+    <div
+      id="list-photo-modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-describedby="modalPhotos"
+    >
       <i class="fas fa-times fa-2x"></i>
     </div>
     <script src="/scripts/pages/photographer.js"></script>

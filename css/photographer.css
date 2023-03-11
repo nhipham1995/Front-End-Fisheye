@@ -1,7 +1,43 @@
 #contact_modal {
   display: none;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  background-color: rgba(139, 139, 139, 0.4);
+  justify-content: center;
+  align-items: center;
 }
-
+#contact_modal h2 {
+  font-size: 45px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+#contact_modal header p {
+  font-size: 35px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  height: 70px;
+}
+#contact_modal .modal {
+  max-width: 700px;
+}
+button.contact-modal-close {
+  padding: 5px;
+  background-color: #db8876;
+  border-radius: 5px;
+  border: none;
+}
+button.contact-modal-close:hover {
+  background-color: #d3573c;
+}
+.no-scroll {
+  overflow: hidden;
+  scroll-behavior: none;
+}
 .photograph-header {
   background-color: #fafafa;
   border-radius: 5px;
@@ -248,13 +284,13 @@ form input {
   border: 6px solid transparent;
   border-color: #fff transparent transparent transparent;
 }
-/* select#myDropdown {
-	background-color: #901c1c;
-	height: 75px;
-	width: 160px;
-	color: white;
-	font-size: 18px;
-} */
+select#myDropdown {
+  background-color: #901c1c;
+  height: 75px;
+  width: 160px;
+  color: white;
+  font-size: 18px;
+}
 /*point the arrow upwards when the select box is open (active):*/
 .select-selected.select-arrow-active:after {
   border-color: transparent transparent #fff transparent;
@@ -431,6 +467,11 @@ h1.h1-photo-modal {
   cursor: pointer;
 }
 
+.message-textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+}
 @media screen and (max-width: 1600px) {
   .sticky-note {
     left: 65%;
