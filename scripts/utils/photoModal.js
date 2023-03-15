@@ -86,14 +86,15 @@ open &&
       nextPhotoAction();
     }
   });
+
 function nextPhotoAction() {
-  refreshModal();
+  open && refreshModal();
   crtPtoIdx += 1;
   photoItemModalFactory(photosLibrary[crtPtoIdx]);
   rightIconCheck();
 }
 function previousPhotoAction() {
-  refreshModal();
+  open && refreshModal();
   crtPtoIdx -= 1;
   photoItemModalFactory(photosLibrary[crtPtoIdx]);
   leftIconCheck();

@@ -128,7 +128,7 @@ form div {
   flex-direction: column;
   width: 100%;
   align-items: self-start;
-  margin-bottom: 26px;
+  margin-bottom: 5px;
 }
 
 form input {
@@ -333,7 +333,115 @@ select#myDropdown {
   right: 0;
   z-index: 99;
 }
+.sticky-note {
+  position: sticky;
+  bottom: -10px;
+  left: 75%;
+  height: 80px;
+  width: 400px;
+  background: #db8876;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 24px;
+}
+.like-zone {
+  display: flex;
+  align-items: center;
+}
+.likes-number {
+  margin-right: 3px;
+}
+.fas.fa-times.fa-2x {
+  color: #901c1c;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+#list-photo-modal {
+  position: absolute;
+  top: 0;
+  display: none;
+  height: 100vh;
+  width: 100vw;
+}
+.img-photo {
+  cursor: pointer;
+}
+.img-photo:focus {
+  outline: #901c1c;
+}
+.photo-article-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.img-photo-modal {
+  max-height: 85vh;
+  max-width: 85vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  border-radius: 10px;
+}
+h1.h1-photo-modal {
+  font-size: 1.8rem;
+  color: #911c1c;
+  margin: 5px auto;
+}
+.right-icon-modal {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  height: 40px;
+  color: #911c1c;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.left-icon-modal {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  height: 40px;
+  color: #911c1c;
+  margin-left: 20px;
+  cursor: pointer;
+}
 
+.message-textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+}
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: #e54858;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: right;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
+.formData[data-error-visible="true"] .text-control {
+  border: 2px solid #d62133;
+}
+.error-msg {
+  color: rgb(164, 29, 8);
+  font-size: 1em;
+  font-weight: lighter;
+  text-align: left;
+  margin-top: 0;
+}
 /*hide the items when the select box is closed:*/
 .select-hide {
   display: none;
@@ -391,87 +499,6 @@ select#myDropdown {
   }
 }
 
-.sticky-note {
-  position: sticky;
-  bottom: -10px;
-  left: 75%;
-  height: 80px;
-  width: 400px;
-  background: #db8876;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 24px;
-}
-.like-zone {
-  display: flex;
-  align-items: center;
-}
-.likes-number {
-  margin-right: 3px;
-}
-.fas.fa-times.fa-2x {
-  color: #901c1c;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-#list-photo-modal {
-  position: absolute;
-  top: 0;
-  display: none;
-  height: 100vh;
-  width: 100vw;
-}
-.img-photo {
-  cursor: pointer;
-}
-.photo-article-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 50px;
-}
-.img-photo-modal {
-  max-height: 85vh;
-  max-width: 85vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  object-fit: contain;
-  border-radius: 10px;
-}
-h1.h1-photo-modal {
-  font-size: 1.8rem;
-  color: #911c1c;
-  margin: 5px auto;
-}
-.right-icon-modal {
-  position: absolute;
-  top: 40%;
-  right: 0;
-  height: 40px;
-  color: #911c1c;
-  margin-right: 20px;
-  cursor: pointer;
-}
-.left-icon-modal {
-  position: absolute;
-  top: 40%;
-  left: 0;
-  height: 40px;
-  color: #911c1c;
-  margin-left: 20px;
-  cursor: pointer;
-}
-
-.message-textarea {
-  width: 100%;
-  border-radius: 5px;
-  border: none;
-}
 @media screen and (max-width: 1600px) {
   .sticky-note {
     left: 65%;

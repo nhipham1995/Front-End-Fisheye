@@ -73,6 +73,19 @@ async function displayData(products) {
       likesNumDOM.textContent = likesSum;
       liked = !liked;
     });
+    productDOM.addEventListener("keydown", (e) => {
+      if (e.code === "Enter") {
+        if (likesDOM.textContent == products[i].likes) {
+          likesDOM.textContent = products[i].likes + 1;
+          likesSum++;
+        } else {
+          likesDOM.textContent = products[i].likes;
+          likesSum--;
+        }
+        likesNumDOM.textContent = likesSum;
+        liked = !liked;
+      }
+    });
     stop = true;
   }
 }

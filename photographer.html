@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <!-- FontAwesome -->
     <script
@@ -48,11 +48,15 @@
 
           <img id="avatar" />
         </div>
-        <div class="product">
+        <section class="product">
           <div class="filter">
             <h3>Trier par</h3>
             <div class="dropdown">
-              <select id="myDropdown" class="dropdown-content">
+              <select
+                id="myDropdown"
+                aria-label="Photos Filter Options"
+                class="dropdown-content"
+              >
                 <option value="likes">Popularité</option>
                 <option value="date">Date</option>
                 <option value="title">Titre</option>
@@ -60,7 +64,7 @@
             </div>
           </div>
           <div class="product-list"></div>
-        </div>
+        </section>
       </main>
     </div>
     <div
@@ -88,26 +92,31 @@
             />
           </button>
         </header>
-        <form aria-label="Contact Form">
-          <div>
+        <form aria-label="Contact Form" method="post" id="form">
+          <div class="formData">
             <label for="name">Prénom</label>
-            <input id="name" type="text" />
+            <input id="name" type="text" required />
+            <p id="errMsg1" class="error-msg"></p>
           </div>
-          <div>
+          <div class="formData">
             <label for="lastname">Nom</label>
-            <input id="lastname" type="text" />
+            <input id="lastname" type="text" required />
+            <p id="errMsg2" class="error-msg"></p>
           </div>
-          <div>
+          <div class="formData">
             <label for="mail">Email</label>
-            <input id="mail" type="email" />
+            <input id="mail" type="email" required />
+            <p id="errMsg3" class="error-msg"></p>
           </div>
-          <div>
+          <div class="formData">
             <label for="description">Votre message</label>
             <textarea
               id="description"
+              required
               class="message-textarea"
               rows="6"
             ></textarea>
+            <p id="errMsg4" class="error-msg"></p>
           </div>
           <button
             class="contact_button"
@@ -142,5 +151,6 @@
     <script src="/scripts/utils/dropdown.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/photoModal.js"></script>
+    <script src="/scripts//utils/contactFormValidation.js"></script>
   </body>
 </html>

@@ -5,6 +5,7 @@ function photoFactory(data) {
 
   function getUserCardDOM() {
     const article = document.createElement("article");
+
     let src;
 
     if (image) {
@@ -22,14 +23,17 @@ function photoFactory(data) {
       src.appendChild(source);
     }
     src.classList.add("img-photo");
+
     src.addEventListener("click", () => {
       displayPhotosModal(id);
     });
+
     const h2 = document.createElement("h2");
     h2.textContent = title;
     const description = document.createElement("p");
     description.textContent = likes;
     description.classList.add("likes");
+    description.tabIndex = "0";
     const heartIcon = document.createElement("i");
 
     heartIcon.setAttribute("class", "fa fa-heart fa-lg");
@@ -41,9 +45,18 @@ function photoFactory(data) {
     likesWrap.appendChild(heartIcon);
     const link = document.createElement("div");
     link.classList.add("img");
-    // link.href = "#";
-    // link.title = title;
+    // console.log(link);
     link.appendChild(src);
+    link.tabIndex = "0";
+
+    link.addEventListener("keydown", (e) => {
+      const keyCode = e.code;
+      if (keyCode === "Enter") {
+        console.log("clicked");
+        displayPhotosModal(id);
+      }
+      return;
+    });
     const wrapText = document.createElement("div");
     wrapText.classList.add("wrap-text");
     wrapText.appendChild(h2);

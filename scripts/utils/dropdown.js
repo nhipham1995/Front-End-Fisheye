@@ -1,7 +1,7 @@
 // Close the dropdown menu if the user clicks outside of it
 var dropdowns = document.getElementById("myDropdown");
 var dropdownWrapper = document.querySelector(".dropdown");
-console.log(dropdowns);
+
 dropdownWrapper.onclick = async function (event) {
   stop = false;
   const { photos } = await getProducts();
@@ -39,6 +39,7 @@ for (i = 0; i < l; i++) {
   /*for each element, create a new DIV that will act as the selected item:*/
   a = document.createElement("DIV");
   a.setAttribute("class", "select-selected");
+  a.tabIndex = "0";
   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
   x[i].appendChild(a);
   /*for each element, create a new DIV that will contain the option list:*/
