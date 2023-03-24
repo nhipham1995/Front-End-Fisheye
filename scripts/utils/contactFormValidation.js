@@ -83,10 +83,10 @@ form.addEventListener("submit", (e) => {
   } else refresh(msgInput, errMsg4);
 
   if (successValidation) {
-    //     form.style.display = "none";
-    //     confirmationMsg.style.display = "block";
-    // empty all the fields of form
-    //     e.target.map((input) => console.log(input, ": ", input.value));
+    console.log("First Name: ", firstnameInput.value);
+    console.log("Name: ", lastnameInput.value);
+    console.log("Email: ", emailInput.value);
+    console.log("Message: ", msgInput.value);
     form.reset();
   }
 });

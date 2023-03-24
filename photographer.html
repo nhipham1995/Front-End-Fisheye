@@ -46,16 +46,19 @@
             </button>
           </div>
 
-          <img id="avatar" />
+          <img id="avatar" alt="Photographer Picture" />
         </div>
         <section class="product">
           <div class="filter">
-            <h3>Trier par</h3>
+            <h2>Trier par</h2>
             <div class="dropdown">
+              <label for="myDropdown">Filter by:</label>
               <select
+                name="myDropdown"
                 id="myDropdown"
                 aria-label="Photos Filter Options"
                 class="dropdown-content"
+                aria-expanded="true"
               >
                 <option value="likes">Popularité</option>
                 <option value="date">Date</option>
@@ -131,7 +134,7 @@
     <div class="sticky-note">
       <div class="like-zone">
         <div class="likes-number"></div>
-        <i class="fas fa-heart"></i>
+        <span class="fas fa-heart"></span>
       </div>
       <div>
         <div><span class="price-number"></span>€/jour</div>
@@ -144,7 +147,7 @@
       role="dialog"
       aria-describedby="modalPhotos"
     >
-      <i class="fas fa-times fa-2x"></i>
+      <span class="fas fa-times fa-2x"></span>
     </div>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/factories/photos.js"></script>

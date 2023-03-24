@@ -1,3 +1,4 @@
+/* exported photoFactory */
 function photoFactory(data) {
   let { id, title, image, likes, video } = data;
 

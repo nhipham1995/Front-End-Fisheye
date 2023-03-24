@@ -6,7 +6,9 @@ const rightIcon = document.createElement("i");
 const leftIcon = document.createElement("i");
 const wrapper = document.createElement("div");
 const closeButton = document.querySelector(".fas.fa-times.fa-2x");
-
+// const { photosLibrary } = require("../pages/photographer");
+// const { mainSection } = require("../utils/contactForm");
+// import { photosLibrary } from "../pages/photographer";
 let crtPtoIdx;
 let open = true;
 function displayPhotosModal(idPhoto) {
@@ -44,7 +46,6 @@ function closePhotosModal() {
 function photoItemModalFactory(photo) {
   rightIconCheck();
   leftIconCheck();
-  console.log(photo);
   const { title, image, video } = photo;
   const picture = `assets/photos/${image ? image : video}`;
   const article = document.createElement("article");
