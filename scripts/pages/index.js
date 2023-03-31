@@ -1,8 +1,11 @@
 async function getPhotographers() {
   let response = await fetch("/data/photographers.json", {
     method: "GET",
-    type: "application/json",
+    // type: "application/json",
     mode: "cors",
+    header: {
+      "Content-Type": "application/json",
+    },
     cache: "default",
   }).then((res) => res.json());
   // et bien retourner le tableau photographers seulement une fois récupéré
