@@ -1,9 +1,11 @@
-/* exported photoFactory */
+// this function create a new photo in list of photos on photographer page
 function photoFactory(data) {
-  let { id, title, image, likes, video } = data;
+  const { id, title, image, likes, video } = data;
 
-  const picture = `assets/photos/${image ? image : video}`;
+  // declaration variable to containe the src of video or image
+  const picture = `assets/photos/${image || video}`;
 
+  // creation of photo article
   function getUserCardDOM() {
     const article = document.createElement("article");
 
@@ -19,7 +21,7 @@ function photoFactory(data) {
 
       src.autoplay = false;
       src.controls = true;
-      var source = document.createElement("source");
+      const source = document.createElement("source");
       source.setAttribute("src", picture);
       src.appendChild(source);
     }
@@ -42,7 +44,6 @@ function photoFactory(data) {
     const likesWrap = document.createElement("div");
     likesWrap.appendChild(description);
     likesWrap.classList.add("likes-wrap");
-    // likesWrap.onClicked = () => onClickedFunc();
     likesWrap.appendChild(heartIcon);
     const link = document.createElement("div");
     link.classList.add("img");
@@ -54,7 +55,6 @@ function photoFactory(data) {
       if (keyCode === "Enter") {
         displayPhotosModal(id);
       }
-      return;
     });
     const wrapText = document.createElement("div");
     wrapText.classList.add("wrap-text");

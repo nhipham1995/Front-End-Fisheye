@@ -2,11 +2,35 @@
 var dropdowns = document.getElementById("myDropdown");
 var dropdownWrapper = document.querySelector(".dropdown");
 
-dropdownWrapper.onclick = async function (event) {
+// dropdownWrapper.onclick = async function (event) {
+//   stop = false;
+//   const { photos } = await getProducts();
+//   if (!event.target.matches(".dropbtn")) {
+//     output = dropdowns.value;
+//     let newPhotos;
+//     if (output) {
+//       newPhotos = await photos.sort((a, b) => {
+//         if (output === "title") {
+//           return a[output] > b[output];
+//         }
+//         return a[output] < b[output];
+//       });
+//     }
+//     displayData(newPhotos);
+
+//   }
+// };
+dropdownWrapper.onclick = openDropdownAction;
+dropdownWrapper.addEventListener("keydown", (e) => {
+  if (e.keyCode === 13) {
+    openDropdownAction(e);
+  }
+});
+async function openDropdownAction(event) {
   stop = false;
   const { photos } = await getProducts();
   if (!event.target.matches(".dropbtn")) {
-    output = dropdowns.value;
+    let output = dropdowns.value;
     let newPhotos;
     if (output) {
       newPhotos = await photos.sort((a, b) => {
@@ -17,17 +41,8 @@ dropdownWrapper.onclick = async function (event) {
       });
     }
     displayData(newPhotos);
-    // var i;
-    // for (i = 0; i < dropdowns.length; i++) {
-    //   var openDropdown = dropdowns[i];
-    //   var value = event.options[event.selectedIndex].value;
-    //   console.log(value);
-    //   if (openDropdown.classList.contains("show")) {
-    //     openDropdown.classList.remove("show");
-    //   }
-    // }
   }
-};
+}
 var x, i, j, l, ll, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/
 x = document.getElementsByClassName("dropdown");
@@ -49,7 +64,7 @@ for (i = 0; i < l; i++) {
     //     create a new DIV that will act as an option item:*/
     c = document.createElement("DIV");
     c.innerHTML = selElmnt.options[j].innerHTML;
-
+    c.tabIndex = "0";
     c.addEventListener("click", function (e) {
       /*when an item is clicked, update the original select box,
 		        and the selected item:*/
@@ -70,7 +85,29 @@ for (i = 0; i < l; i++) {
           break;
         }
       }
-      h.click();
+    });
+    c.addEventListener("keydown", function (e) {
+      /* when an item is clicked, update the original select box,
+              and the selected item: */
+      if (e.code === "Enter") {
+        let y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+      }
     });
     b.appendChild(c);
   }
@@ -82,6 +119,15 @@ for (i = 0; i < l; i++) {
     closeAllSelect(this);
     this.nextSibling.classList.toggle("select-hide");
     // this.classList.toggle("select-arrow-active");
+  });
+  a.addEventListener("keydown", function (e) {
+    /* when the select box is clicked, close any other select boxes,
+      and open/close the current select box: */
+    if (e.code === "Enter") {
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+    }
   });
 }
 
@@ -115,3 +161,8 @@ function closeAllSelect(elmnt) {
 /*if the user clicks anywhere outside the select box,
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
+document.addEventListener("keydown", (e) => {
+  if (e.code === "KeyE") {
+    closeAllSelect();
+  }
+});

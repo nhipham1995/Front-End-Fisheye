@@ -4,7 +4,8 @@ const mainPart = document.querySelector(".product");
 const photographerName = document.querySelector(".photographer-name");
 const contactFormClose = document.querySelector(".contact-modal-close");
 const modal = document.getElementById("contact_modal");
-
+// import { currentPhotographer } from "../pages/photographer";
+// import { bodyPart } from "./photoModal";
 function displayModal() {
   mainSection.ariaHidden = "true";
   modal.ariaHidden = "false";
@@ -21,16 +22,8 @@ function closeModal() {
   bodyPart.classList.remove("no-scroll");
 }
 
-document.addEventListener("keydown", (e) => {
-  const keyCode = e.code;
-  if (modal.ariaHidden == "false" && ["Escape", "Enter"].includes(keyCode)) {
+contactFormClose.addEventListener("keydown", (e) => {
+  if (modal.ariaHidden == "false" && e.keyCode == 13) {
     closeModal();
-  }
-  if (
-    modalPhotos.ariaHidden == "false" &&
-    ["Escape", "Enter"].includes(keyCode)
-  ) {
-    closePhotosModal();
-    refreshModal();
   }
 });

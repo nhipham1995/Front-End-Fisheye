@@ -5,22 +5,21 @@ const bodyPart = document.querySelector("body");
 const rightIcon = document.createElement("i");
 const leftIcon = document.createElement("i");
 const wrapper = document.createElement("div");
-const closeButton = document.querySelector(".fas.fa-times.fa-2x");
-// const { photosLibrary } = require("../pages/photographer");
-// const { mainSection } = require("../utils/contactForm");
-// import { photosLibrary } from "../pages/photographer";
+const closeButton = document.querySelector("#photoModalClose");
 let crtPtoIdx;
 let open = true;
+// import { photosLibrary } from "../pages/photographer";
+// import { currentPhotographer } from "../pages/photographer";
+// import { mainSection } from "./contactForm";
 function displayPhotosModal(idPhoto) {
-  //the current photo
+  // the current photo
   const currentPhoto = photosLibrary.filter((photo) => photo.id === idPhoto);
-  //find index of current photo in photos array
+  // find index of current photo in photos array
   crtPtoIdx = photosLibrary.findIndex((photo) => photo.id === idPhoto);
   open = true;
   modalPhotos.style.display = "block";
   modalPhotos.ariaHidden = "false";
   mainSection.ariaHidden = "true";
-
   contentSection.style.display = "none";
   stickyNote.style.display = "none";
   rightIcon.setAttribute("class", "fa fa-chevron-right fa-2x");
@@ -47,7 +46,7 @@ function photoItemModalFactory(photo) {
   rightIconCheck();
   leftIconCheck();
   const { title, image, video } = photo;
-  const picture = `assets/photos/${image ? image : video}`;
+  const picture = `assets/photos/${image || video}`;
   const article = document.createElement("article");
   const h1 = document.createElement("h1");
   article.classList.add("photo-article-modal");
@@ -61,11 +60,10 @@ function photoItemModalFactory(photo) {
     src.alt = title + " Video.";
     src.autoplay = false;
     src.controls = true;
-    var source = document.createElement("source");
+    const source = document.createElement("source");
     source.setAttribute("src", picture);
     src.appendChild(source);
   }
-  // src.alt = title;
   src.classList.add("img-photo-modal");
   h1.textContent = title;
   h1.classList.add("h1-photo-modal");
@@ -102,7 +100,7 @@ function previousPhotoAction() {
 }
 
 function refreshModal() {
-  let child = wrapper.firstChild;
+  const child = wrapper.firstChild;
   wrapper.removeChild(child);
 }
 
@@ -122,4 +120,15 @@ function leftIconCheck() {
 closeButton.addEventListener("click", () => {
   closePhotosModal();
   refreshModal();
+});
+
+closeButton.addEventListener("keydown", (e) => {
+  if (
+    // e.target.classList[0] !== "img" &&
+    modalPhotos.ariaHidden == "false" &&
+    e.keyCode === 13
+  ) {
+    closePhotosModal();
+    refreshModal();
+  }
 });

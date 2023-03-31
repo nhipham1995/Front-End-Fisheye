@@ -1,3 +1,6 @@
+header.nav.nav-photo {
+  margin-top: 10px;
+}
 #contact_modal {
   display: none;
   left: 50%;
@@ -11,16 +14,18 @@
   justify-content: center;
   align-items: center;
 }
+#contact_modal header {
+  margin-bottom: 20px;
+}
 #contact_modal h2 {
-  font-size: 45px;
-  margin-bottom: 0;
+  font-size: 35px;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 #contact_modal header p {
-  font-size: 35px;
+  font-size: 25px;
   margin-top: 0;
   margin-bottom: 20px;
-  height: 70px;
 }
 #contact_modal .modal {
   max-width: 700px;
@@ -97,8 +102,10 @@ p#tagline {
 }
 
 .modal header {
+  display: flex;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
 }
 
 .modal header img {
@@ -120,7 +127,7 @@ form {
 
 form label {
   color: #312e2e;
-  font-size: 36px;
+  font-size: 24px;
 }
 
 form div {
@@ -133,7 +140,7 @@ form div {
 
 form input {
   width: 100%;
-  height: 68px;
+  height: 55px;
   border: none;
   border-radius: 5px;
 }
@@ -143,11 +150,11 @@ form input {
   display: grid;
   gap: 25px 15px;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-top: 100px;
+  margin-top: 120px;
   grid-auto-rows: 1fr;
   grid-auto-flow: row;
 }
-.prudct-list article {
+.product-list article {
   display: grid;
   justify-content: center;
 }
@@ -201,6 +208,7 @@ form input {
   line-height: 31px;
   color: #901c1c;
   margin-top: 0;
+  cursor: pointer;
 }
 .icon-style {
   color: #911c1c;
@@ -368,6 +376,7 @@ select#myDropdown {
 }
 .img-photo {
   cursor: pointer;
+  object-fit: cover;
 }
 .img-photo:focus {
   outline: #901c1c;
@@ -512,7 +521,6 @@ h1.h1-photo-modal {
 @media screen and (max-width: 1000px) {
   .h1-style {
     font-size: 48px;
-    /* margin-right: 25px; */
   }
   .product-list {
     grid-template-columns: 1fr 1fr;
@@ -524,6 +532,22 @@ h1.h1-photo-modal {
   }
   .sticky-note {
     left: 45%;
+  }
+  button.contact-modal-close {
+    height: 40px;
+  }
+  button.contact-modal-close img {
+    height: 30px;
+  }
+  form label {
+    font-size: 20px;
+  }
+  form input {
+    height: 45px;
+  }
+  .contact_button {
+    height: auto;
+    width: auto;
   }
 }
 
@@ -565,5 +589,14 @@ h1.h1-photo-modal {
   .product-list article h2,
   .likes {
     font-size: 18px;
+  }
+  button.contact-modal-close {
+    height: 30px;
+  }
+  button.contact-modal-close img {
+    height: 20px;
+  }
+  .modal {
+    width: 70%;
   }
 }

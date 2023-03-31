@@ -12,7 +12,7 @@ module.exports = {
   rules: {
     "no-unused-vars": "off",
     "no-undef": "off",
-    "no-restricted-imports": ["error", "import1", "import2"],
+    // "no-restricted-imports": ["error", "import1", "import2"],
   },
   parserOptions: {
     sourceType: "module",
