@@ -10,10 +10,12 @@ module.exports = {
     es6: true,
   },
   rules: {
-    "no-unused-vars": 2,
-    "no-undef": 2,
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "no-restricted-imports": ["error", "import1", "import2"],
   },
   parserOptions: {
     sourceType: "module",
+    ecmaVersion: 8,
   },
 };

@@ -5,7 +5,6 @@ var dropdownWrapper = document.querySelector(".dropdown");
 dropdownWrapper.onclick = async function (event) {
   stop = false;
   const { photos } = await getProducts();
-  console.log("hello");
   if (!event.target.matches(".dropbtn")) {
     output = dropdowns.value;
     let newPhotos;

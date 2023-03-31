@@ -46,14 +46,12 @@ function photoFactory(data) {
     likesWrap.appendChild(heartIcon);
     const link = document.createElement("div");
     link.classList.add("img");
-    // console.log(link);
     link.appendChild(src);
     link.tabIndex = "0";
 
     link.addEventListener("keydown", (e) => {
       const keyCode = e.code;
       if (keyCode === "Enter") {
-        console.log("clicked");
         displayPhotosModal(id);
       }
       return;

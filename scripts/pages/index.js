@@ -1,4 +1,3 @@
-// import { photographerFactory } from "../factories/photographer.js";
 async function getPhotographers() {
   let response = await fetch("/data/photographers.json", {
     method: "GET",
