@@ -21,7 +21,7 @@ function photographerFactory(data) {
 		detail.classList.add("price");
 
 		const link = document.createElement("a");
-		link.href = "/photographer.html?id=" + id;
+		link.href = "/photographer.html?&id=" + id;
 		link.title = name;
 		link.appendChild(img);
 		link.appendChild(h2);

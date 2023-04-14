@@ -1,7 +1,7 @@
 // function to take the id from url (this id is equal to photographerId)
 function checkUrl() {
-	const params = window.location.href;
-	const photographerId = params.substring(params.indexOf("?id=") + 4);
+	const params = new URLSearchParams(window.location.href);
+	const photographerId = params.get("id");
 	return photographerId;
 }
 
@@ -68,12 +68,15 @@ async function displayData(products) {
 		const likesWrapDOM =
 			productsSection.childNodes[i].childNodes[1].childNodes[1];
 		const likesDOM = likesWrapDOM.childNodes[0].childNodes[0];
+		const likeIconDOM = likesWrapDOM.childNodes[1];
 		likesWrapDOM.addEventListener("click", () => {
 			if (likesDOM.textContent == products[i].likes) {
 				likesDOM.textContent = products[i].likes + 1;
+				likeIconDOM.classList.replace("far", "fa");
 				likesSum++;
 			} else {
 				likesDOM.textContent = products[i].likes;
+				likeIconDOM.classList.replace("fa", "far");
 				likesSum--;
 			}
 			likesNumDOM.textContent = likesSum;
@@ -83,9 +86,12 @@ async function displayData(products) {
 			if (e.code === "Enter") {
 				if (likesDOM.textContent == products[i].likes) {
 					likesDOM.textContent = products[i].likes + 1;
+					likeIconDOM.classList.replace("far", "fa");
+
 					likesSum++;
 				} else {
 					likesDOM.textContent = products[i].likes;
+					likeIconDOM.classList.replace("fa", "far");
 					likesSum--;
 				}
 				likesNumDOM.textContent = likesSum;
